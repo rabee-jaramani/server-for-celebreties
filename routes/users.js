@@ -14,8 +14,10 @@ router.post(
     }
     try {
       const { name, email, phone, checkboxes, dropdown, radio } = req.body;
-      const file1 = req.files['file1'][0] ?? null;
-      const file2 = req.files['file2'][0] ?? null;
+      const file1 =
+        req.files['file1'][0] === undefined ? null : req.files['file1'][0];
+      const file2 =
+        req.files['file2'][0] === undefined ? null : req.files['file2'][0];
       console.log('File ONE', file1);
       var fs1 = fs.readFileSync(file1.path);
       var fs2 = fs.readFileSync(file2.path);
