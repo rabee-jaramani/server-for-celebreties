@@ -14,7 +14,11 @@ router.post(
     }
     try {
       const { name, email, phone, checkboxes, dropdown, radio } = req.body;
-      console.log(' REQ .FILES', req.files);
+      console.log(name, email, phone, checkboxes, dropdown, radio);
+      if (req.body.file1[0].toString() === 'n') {
+        console.log('File one is null XXXXXXXXXXX');
+      }
+      console.log(' REQ .FILES ARE LENGTH', req.body.file1[0].toString());
 
       const file1 =
         req.files['file1'][0] === undefined ? null : req.files['file1'][0];
